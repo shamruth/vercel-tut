@@ -1,6 +1,6 @@
 require("dotenv").config();
 const path=require("path");
-const cors = require("cors");
+//const cors = require("cors");
 const express=require('express');
 const mongoose=require('mongoose');
 //mongoose atlas connection
@@ -27,7 +27,7 @@ const todomodel=mongoose.model("TODO"/*DB NAME*/,todoschema);
 const app=express();
 const port=process.env.PORT;
 app.use(express.json());
-app.use(cors());
+//app.use(cors());
 
 app.get('/',(req,res)=>
 {
