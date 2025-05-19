@@ -1,31 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
+   <head>
+    <title>Task Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    </head>
-    <body>
-        <form>
-            <input id="data" type="text" placeholder="addtask" minlength="1" required>
-            <button type="button" onclick="ADD()">ADD TASK</button>
-            <button type="button" onclick="DISP()">VIEW TASK</button>
-            <button type="button" onclick="DELETEALL()">DELETEALL</button>
-            <ul id="VIEWTASK">  </ul>
-        </form>
-    </body>
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            width: 400px;
+        }
 
-</html>
-<style>
-    #data
-    {
-        padding: auto;
-    }
-    ul li button
-    {
-        padding: auto;
-        margin: 10px;
+        .container h1 {
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
 
-    }
-</style>
+        .form-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        #data {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        #VIEWTASK {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #VIEWTASK li {
+            background-color: #fafafa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #VIEWTASK li button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        #VIEWTASK li button:hover {
+            background-color: #c82333;
+        }
+
+        #VIEWTASK li .edit-btn {
+            background-color: #28a745;
+        }
+
+        #VIEWTASK li .edit-btn:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <div class="form-group">
+            <input id="data" type="text" placeholder="Add Task" minlength="1" required>
+            <button class="btn" type="button" onclick="ADD()">ADD TASK</button>
+        </div>
+        <div class="form-group">
+            <button class="btn" type="button" onclick="DISP()">VIEW TASKS</button>
+            <button class="btn" type="button" onclick="DELETEALL()">DELETE ALL</button>
+        </div>
+        <ul id="VIEWTASK"></ul>
+    </div>
+</body>
 <script>
     const VIEW=document.getElementById("VIEWTASK");
     async function ADD()
